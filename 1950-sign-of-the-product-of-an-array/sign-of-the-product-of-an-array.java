@@ -1,19 +1,23 @@
 class Solution {
+    public int signFunc(int x) {        
+        if (x > 0) return 1;
+        if (x < 0) return -1;
+        return 0;
+    }
+
     public int arraySign(int[] nums) {
-        int negative =0;
-        int positive =0;
+        long product = 1;
+        int sign = 1;
+
         for (int num : nums) {
-            if(num ==0){
-                return 0;
+            if (num == 0) {
+                return signFunc(0);
             }
-            else if(num<0){
-                negative++;
+            if (num < 0) {
+                sign = -sign;
             }
         }
-        if (negative %2 ==1){
-            return -1;
-        }else{
-            return 1;
-        }
+
+        return signFunc(sign);
     }
 }
